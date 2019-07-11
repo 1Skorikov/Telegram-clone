@@ -24,6 +24,7 @@ export default {
 
 <style lang="scss" scoped>
 .page-header {
+  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;
@@ -42,7 +43,6 @@ export default {
 }
 
 .page-header__left-icon {
-  margin-right: 34px;
   cursor: pointer;
 }
 

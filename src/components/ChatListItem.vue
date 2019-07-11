@@ -1,7 +1,17 @@
 <template>
   <div class="chat-list-item" :class="{ pinned: chatData.pinned }">
+    <router-link
+      :to="`/chat/${chatData.chatID}`"
+      class="chat-list-item__link"
+    />
+
     <div class="chat-list-item__image">
-      <img :src="chatData.sender.photoURL" alt="user-avatar" />
+      <img
+        v-if="chatData.sender.photoURL"
+        :src="chatData.sender.photoURL"
+        alt="user-avatar"
+      />
+      <img v-else src="@/assets/img/avatar-placeholder.png" alt="avatar" />
     </div>
 
     <div class="chat-list-item__content">
@@ -18,7 +28,7 @@
 
         <div class="chat-list-item__header-item">
           <img
-            v-if="chatData.messageReaded"
+            v-if="chatData.unreadMessagesCount === 0"
             src="@/assets/img/double-tick.png"
             class="chat-list-item__tick"
             alt="readed"
@@ -29,9 +39,31 @@
         </div>
       </header>
 
-      <p class="chat-list-item__message">
-        {{ chatData.sender.message }}
-      </p>
+      <footer class="chat-list-item__footer">
+        <p class="chat-list-item__message">
+          {{ chatData.sender.message | cropMessage }}
+        </p>
+
+        <span
+          v-if="chatData.unreadMessagesCount > 0 || chatData.pinned"
+          class="chat-list-item__right-icon"
+          :class="{
+            unread: chatData.unreadMessagesCount > 0,
+            'unread--pinned':
+              chatData.pinned && chatData.unreadMessagesCount > 0
+          }"
+        >
+          <img
+            v-if="chatData.pinned && chatData.unreadMessagesCount === 0"
+            src="@/assets/img/icon-pin.png"
+            alt="pin"
+          />
+
+          <strong v-if="chatData.unreadMessagesCount > 0">
+            {{ chatData.unreadMessagesCount }}
+          </strong>
+        </span>
+      </footer>
     </div>
   </div>
 </template>
@@ -44,27 +76,45 @@ export default {
       type: Object,
       required: true
     }
+  },
+  filters: {
+    cropMessage(value) {
+      if (!value) return "";
+      return value.length > 35 ? value.slice(0, 32) + "..." : value;
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .chat-list-item {
+  position: relative;
   display: flex;
   justify-content: flex-start;
   padding-left: 10px;
+  background-color: #fff;
+}
 
-  &.pinned {
-    background-color: #f7f7f7;
-  }
+.chat-list-item__link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: background-color 0.2s ease;
 
-  &.pinned .chat-list-item__content {
-    border-bottom-color: #d9d9d9;
+  &:hover,
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.08);
   }
+}
 
-  &.pinned:first-child {
-    background-color: red;
-  }
+.pinned {
+  background-color: #f7f7f7;
+}
+
+.pinned .chat-list-item__content {
+  border-bottom-color: #d9d9d9;
 }
 
 .chat-list-item__image {
@@ -125,5 +175,37 @@ export default {
   font-size: 13px;
   letter-spacing: 0.3px;
   color: rgba(139, 141, 143, 255);
+}
+
+.chat-list-item__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-list-item__right-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #a8a8a8;
+  border-radius: 50%;
+  font-size: 11px;
+  color: #fff;
+
+  img {
+    width: 10px;
+  }
+
+  &.unread {
+    background-color: #4ecc5e;
+    border-color: #4ecc5e;
+  }
+
+  &.unread--pinned {
+    background-color: #c5c9cc;
+    border-color: #c5c9cc;
+  }
 }
 </style>

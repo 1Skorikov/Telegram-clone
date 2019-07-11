@@ -6,14 +6,13 @@
 
 <script>
 /*
-TODO:  make variables for colors and etc,
-      place data to vuex, filter for cropp message in list item,
-      avatar placeholder if user does not have,
-      may be use local images for user avatars,
-      добавить галочки прочитанных,
-      удалить лишние картинки с асетсов,
-      заменить имена и текст,
-      доделать закрепленние сообщения
+TODO: make variables for colors and etc,
+      use local images for user avatars, fonts, icons
+      order messages by sended time,
+      remove message from sender object and get last message from messages array,
+      group messages if they several in a block from one user,
+      tick icon on sended and readed message,
+      routing animation
 */
 import "@/assets/styles/main.scss";
 
@@ -21,11 +20,3 @@ export default {
   name: "App"
 };
 </script>
-
-<style lang="scss">
-#app {
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-</style>

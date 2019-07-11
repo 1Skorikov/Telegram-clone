@@ -1,0 +1,38 @@
+body {
+    padding-top: 47px; // for fixed header
+}
+
+body, html {
+    height: 100%;
+}
+
+#app {
+    height: 100%;
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.router-link-active {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+// Animations
+.swipe-left-enter-active,
+.swipe-left-leave-active {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 47px;
+  transition: transform 10s linear;
+  overflow: hidden;
+}
+.swipe-left-enter {
+  transform: translateX(100%);
+}
+.swipe-left-enter-to {
+  transform: translateX(0%);
+}
