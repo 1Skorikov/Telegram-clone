@@ -16,8 +16,7 @@ export default new Vuex.Store({
           name: "IT Юмор",
           message: "Когда попросили рассказать lorem ipsum dolor sit amet.",
           lastSeen: "14:02",
-          photoURL:
-            "https://cdn4.iconfinder.com/data/icons/user-avatar-flat-icons/512/User_Avatar-04-512.png"
+          photoURL: require("../assets/img/user.png")
         },
         messages: [
           {
@@ -67,8 +66,7 @@ export default new Vuex.Store({
           name: "Correct messages demo",
           message: "Lorem ipsum dolor sit amet.",
           lastSeen: "05:21",
-          photoURL:
-            "https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1"
+          photoURL: require("../assets/img/user-1.png")
         },
         messages: [
           {
@@ -118,8 +116,7 @@ export default new Vuex.Store({
           name: "John smith",
           message: "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.",
           lastSeen: "02:20",
-          photoURL:
-            "https://i.pinimg.com/originals/b1/bb/ec/b1bbec499a0d66e5403480e8cda1bcbe.png"
+          photoURL: require("../assets/img/user-2.png")
         },
         messages: [
           {
@@ -169,8 +166,7 @@ export default new Vuex.Store({
           name: "Леша 3981",
           message: "Купи хлеб",
           lastSeen: "12:20",
-          photoURL:
-            "https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1"
+          photoURL: require("../assets/img/user-3.png")
         },
         messages: [
           {
@@ -220,8 +216,7 @@ export default new Vuex.Store({
           name: "John smith",
           message: "Lorem ipsum dolor sit amet.",
           lastSeen: "08:22",
-          photoURL:
-            "https://i.pinimg.com/originals/b1/bb/ec/b1bbec499a0d66e5403480e8cda1bcbe.png"
+          photoURL: require("../assets/img/user-4.png")
         },
         messages: [
           {
@@ -271,7 +266,7 @@ export default new Vuex.Store({
           name: "Леша 3981",
           message: "Купи хлеб. Lorem ipsum dolor sit amet.",
           lastSeen: "22:20",
-          photoURL: "http://chittagongit.com/download/403527"
+          photoURL: require("../assets/img/user.png")
         },
         messages: [
           {
@@ -321,8 +316,7 @@ export default new Vuex.Store({
           name: "Леша 3981",
           message: "Купи хлеб",
           lastSeen: "16:20",
-          photoURL:
-            "https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1"
+          photoURL: require("../assets/img/user-1.png")
         },
         messages: [
           {
@@ -372,8 +366,7 @@ export default new Vuex.Store({
           name: "John smith",
           message: "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.",
           lastSeen: "13:53",
-          photoURL:
-            "https://i.pinimg.com/originals/b1/bb/ec/b1bbec499a0d66e5403480e8cda1bcbe.png"
+          photoURL: require("../assets/img/user-2.png")
         },
         messages: [
           {
@@ -423,7 +416,7 @@ export default new Vuex.Store({
           name: "Test pinned",
           message: "Купи хлеб",
           lastSeen: "23:20",
-          photoURL: "http://chittagongit.com/download/403527"
+          photoURL: require("../assets/img/user-3.png")
         },
         messages: [
           {
@@ -473,7 +466,7 @@ export default new Vuex.Store({
           name: "Test pinned 2",
           message: "Test chat message",
           lastSeen: "13:22",
-          photoURL: "https://longfordpc.com/images/pastor-clipart-priest-8.png"
+          photoURL: require("../assets/img/user-4.png")
         },
         messages: [
           {
@@ -524,6 +517,56 @@ export default new Vuex.Store({
           message: "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.",
           lastSeen: "13:14",
           photoURL: ""
+        },
+        messages: [
+          {
+            text: "Lorem ipsum dolor.",
+            time: "12:30",
+            sended: true,
+            readed: false,
+            author: "current_user"
+          },
+          {
+            text: "Lorem ipsum dolor.",
+            time: "12:30",
+            sended: true,
+            readed: false,
+            author: "current_user"
+          },
+          {
+            text: "Lorem ipsum dolor.",
+            time: "12:30",
+            sended: true,
+            readed: false,
+            author: "current_user"
+          },
+          {
+            text: "Lorem ipsum dolor.",
+            time: "12:30",
+            sended: true,
+            readed: false,
+            author: "current_user"
+          },
+          {
+            text: "Lorem ipsum dolor.",
+            time: "12:30",
+            sended: true,
+            readed: false,
+            author: "current_user"
+          }
+        ]
+      },
+      {
+        chatID: 11,
+        lastMessageTime: "15:10",
+        unreadMessagesCount: 1,
+        muted: false,
+        pinned: false,
+        sender: {
+          name: "IT Юмор",
+          message: "Когда попросили рассказать lorem ipsum dolor sit amet.",
+          lastSeen: "14:02",
+          photoURL: require("../assets/img/user.png")
         },
         messages: [
           {

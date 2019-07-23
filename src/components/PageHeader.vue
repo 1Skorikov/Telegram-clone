@@ -24,7 +24,7 @@ export default {
 
 <style lang="scss" scoped>
 .page-header {
-  z-index: 2;
+  z-index: $z-index-absolute;
   position: fixed;
   top: 0;
   left: 0;
@@ -42,15 +42,12 @@ export default {
   align-items: center;
 }
 
-.page-header__left-icon {
+.page-header__left-icon,
+.page-header__right-icon {
   cursor: pointer;
 }
 
 .page-header__content {
   letter-spacing: 0.8px;
-}
-
-.page-header__right-icon {
-  cursor: pointer;
 }
 </style>

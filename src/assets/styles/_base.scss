@@ -1,23 +1,23 @@
 body {
-    padding-top: 47px; // for fixed header
+  padding-top: 47px; // for fixed header
 }
 
-body, html {
-    height: 100%;
+body,
+html {
+  height: 100%;
 }
 
 #app {
-    height: 100%;
-    font-family: "Roboto", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .router-link-active {
-    text-decoration: none;
-    color: #fff;
+  text-decoration: none;
+  color: #fff;
 }
-
 
 // Animations
 .swipe-left-enter-active,
@@ -30,9 +30,11 @@ body, html {
   transition: transform 10s linear;
   overflow: hidden;
 }
+
 .swipe-left-enter {
   transform: translateX(100%);
 }
+
 .swipe-left-enter-to {
   transform: translateX(0%);
 }
