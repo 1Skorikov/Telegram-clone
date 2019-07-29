@@ -36,7 +36,7 @@
 
     <div class="chat-page__messages">
       <chat-message
-        v-for="(message, index) in chatData.messages"
+        v-for="(message, index) in messages"
         :key="index"
         :message="message"
       />
@@ -50,13 +50,27 @@ import ChatMessage from "@/components/ChatMessage";
 
 export default {
   name: "chat",
+
   components: {
     PageHeader,
     ChatMessage
   },
+
   computed: {
     chatData() {
       return this.$store.getters.getChatById(+this.$route.params.chatID)[0];
+    },
+
+    messages() {
+      return this.orderByDate(this.chatData.messages, "time");
+    }
+  },
+
+  methods: {
+    orderByDate(messages, dateProp) {
+      return messages.slice().sort(function(a, b) {
+        return a[dateProp] < b[dateProp] ? -1 : 1;
+      });
     }
   }
 };

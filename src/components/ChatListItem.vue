@@ -34,14 +34,14 @@
             alt="readed"
           />
           <span class="chat-list-item__time">
-            {{ chatData.lastMessageTime }}
+            {{ lastMessage.time.toLocaleDateString() }}
           </span>
         </div>
       </header>
 
       <footer class="chat-list-item__footer">
         <p class="chat-list-item__message">
-          {{ chatData.sender.message | cropMessage }}
+          {{ lastMessage.text | cropMessage }}
         </p>
 
         <span
@@ -71,12 +71,30 @@
 <script>
 export default {
   name: "chat-list-item",
+
   props: {
     chatData: {
       type: Object,
       required: true
     }
   },
+
+  created() {},
+
+  methods: {
+    orderByDate(messages, dateProp) {
+      return messages.slice().sort(function(a, b) {
+        return a[dateProp] > b[dateProp] ? -1 : 1;
+      })[0];
+    }
+  },
+
+  computed: {
+    lastMessage() {
+      return this.orderByDate(this.chatData.messages, "time");
+    }
+  },
+
   filters: {
     cropMessage(value) {
       if (!value) return "";

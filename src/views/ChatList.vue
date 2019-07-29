@@ -37,15 +37,19 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "chat-list",
+
   components: {
     PageHeader,
     ChatListItem
   },
+
   computed: {
     ...mapGetters(["getChats"]),
+
     defaultChats() {
       return this.getChats.filter(x => x.pinned === false);
     },
+
     pinnedChats() {
       return this.getChats.filter(x => x.pinned === true);
     }

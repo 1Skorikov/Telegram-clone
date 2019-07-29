@@ -10,7 +10,9 @@
       <p class="chat-message__text">{{ message.text }}</p>
 
       <div class="chat-message__info">
-        <div class="chat-message__time">17:28</div>
+        <div class="chat-message__time">
+          {{ message.time.toLocaleTimeString() }}
+        </div>
       </div>
     </div>
   </div>
@@ -19,6 +21,7 @@
 <script>
 export default {
   name: "chat-message",
+
   props: {
     message: {
       type: Object,
@@ -43,6 +46,7 @@ export default {
   position: relative;
   display: inline-flex;
   align-items: center;
+  max-width: 275px;
   margin-bottom: 4px;
   margin-left: 10px;
   padding: 10px 7px 3px 7px;
